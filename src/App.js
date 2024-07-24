@@ -1,6 +1,4 @@
 import React from 'react';
-import {ProductList} from "./features/product-list/ProductList";
-import Navbar from "./features/navbar/Navbar";
 import './App.css';
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -15,6 +13,8 @@ import {
     Link,
 } from "react-router-dom";
 import CartPage from './pages/CartPage';
+import Checkout from './pages/Checkout';
+import ProductDetail from './features/product-list/components/ProductDetail';
 
 
 const router = createBrowserRouter([
@@ -35,6 +35,14 @@ const router = createBrowserRouter([
     {
         path: "cart",
         element: <CartPage />,
+    },
+    {
+        path: "checkout",
+        element: <Checkout />,
+    },
+    {
+        path: "product-detail",
+        element: <ProductDetail />,
     },
 ]);
 

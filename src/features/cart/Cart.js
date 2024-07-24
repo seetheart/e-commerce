@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const products = [
+const initial_products = [
   {
     id: 1,
     name: 'Throwback Hip Bag',
@@ -36,7 +36,7 @@ const products = [
 
 export function Cart() {
   const [open, setOpen] = useState(true)
-  const [productCart, setProductCart] = useState(products)
+  const [products, setProducts] = useState(initial_products)
 
   return (
     <div className="mx-auto mt-24 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@ export function Cart() {
       <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flow-root">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
-                          {productCart.map((product) => (
+                          {products.map((product) => (
                             <li key={product.id} className="flex py-6">
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img
@@ -97,12 +97,11 @@ export function Cart() {
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                     <div className="mt-6">
-                      <a
-                        href="#"
-                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                      >
-                        Checkout
-                      </a>
+                      <Link to='/checkout' 
+                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                          
+                          Checkout
+                      </Link>
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
